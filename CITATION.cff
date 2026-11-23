@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as follows."
+title: "Se ejecutan los planes de adquisiciones del BCIE?"
+type: software
+authors:
+  - family-names: "Lopez Zeledon"
+    given-names: "Emerson"
+    email: "emerson.zeledon.ni@gmail.com"
+    affiliation: "Universidad Nacional de Ingeniería, Nicaragua, autor independiente"
+    orcid: "https://orcid.org/0009-0009-6423-2883"
+repository-code: "https://github.com/Emerson-nic/Second_Datathon_BCIE"
+url: "https://github.com/Emerson-nic/Second_Datathon_BCIE"
+license: "MIT"
