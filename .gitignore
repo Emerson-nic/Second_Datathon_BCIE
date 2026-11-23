@@ -6,12 +6,14 @@
 
 #pdf/html
 
-*.pdf
+3. Miguel Angel Barrera.pdf
+19. Larissa Acosta.pdf
 *.html
 *.md
 !README.md
 !nota_politica.md
 !02_modelo.md
+*.dcf
 
 # Rendered and temporary documents
 *.aux
