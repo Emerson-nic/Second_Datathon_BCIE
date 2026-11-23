@@ -117,6 +117,6 @@ El PSD es una fotografía y no un panel. La cobertura es parcial y la informaci�
 
 ## Citación
 
-> Lopez Zeledon, E. 2026. *Se ejecutan los planes de adquisiciones del BCIE?* Código y materiales reproducibles. <https://github.com/Emerson-nic/Second_Datathon_BCIE>. DOI, [10.5281/zenodo.24484873](https://doi.org/10.5281/zenodo.24484873).
+> Lopez, E. 2026. *Se ejecutan los planes de adquisiciones del BCIE?* Código y materiales reproducibles. <https://github.com/Emerson-nic/Second_Datathon_BCIE>. DOI, [10.5281/zenodo.24484873](https://doi.org/10.5281/zenodo.24484873).
 
 
