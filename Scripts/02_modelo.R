@@ -174,3 +174,67 @@ dplyr::bind_rows(
   sensibilidad(dplyr::filter(datos, estado3 != "fracasado_desierto"), "Sin fracasados")
 )
 
+#save outputs ----
+
+#grouped coefficient table
+coeficientes_agrupados <- lmtest::coeftest(modelo, vcov = sandwich::vcovCL(modelo, cluster = ~numero_prestamo))
+coeficientes_salida <- tibble::tibble(
+  termino = rownames(coeficientes_agrupados),
+  coeficiente = coeficientes_agrupados[, "Estimate"],
+  error_estandar_agrupado = coeficientes_agrupados[, "Std. Error"],
+  estadistico_z = coeficientes_agrupados[, "z value"],
+  p_valor = coeficientes_agrupados[, "Pr(>|z|)"],
+  odds_ratio = exp(coeficientes_agrupados[, "Estimate"]),
+  ic_95_inf = exp(coeficientes_agrupados[, "Estimate"] - 1.96 * coeficientes_agrupados[, "Std. Error"]),
+  ic_95_sup = exp(coeficientes_agrupados[, "Estimate"] + 1.96 * coeficientes_agrupados[, "Std. Error"])
+)
+readr::write_csv(coeficientes_salida, "Data/csv/modelo_coeficientes.csv")
+
+#process predictions
+predicciones_salida <- datos %>%
+  dplyr::select(identificador_proceso, numero_prestamo, p_pend, p_looo, pendiente)
+readr::write_csv(predicciones_salida, "Data/csv/predicciones_proceso.csv")
+
+#operation risk table
+operaciones_salida <- operaciones %>%
+  dplyr::left_join(
+    calib_operacion %>%
+      dplyr::rename(pred_looo = pred),
+    by = "numero_prestamo"
+  ) %>%
+  dplyr::left_join(
+    datos %>%
+      dplyr::select(numero_prestamo, pais, sector_ibcie) %>%
+      dplyr::distinct(),
+    by = "numero_prestamo"
+  )
+readr::write_csv(operaciones_salida, "Data/csv/operaciones_semaforo.csv")
+
+#fit and sensitivity table
+metricas_looo <- evaluar(datos$p_looo) %>%
+  dplyr::mutate(metrica = "modelo_looo") %>%
+  dplyr::select(metrica, MAE, RMSE, cor)
+metricas_benchmark <- evaluar(rep(mean(datos$pendiente), nrow(datos))) %>%
+  dplyr::mutate(metrica = "benchmark_constante") %>%
+  dplyr::select(metrica, MAE, RMSE, cor)
+sesgo_monto <- datos %>%
+  dplyr::summarise(
+    monto_pend_obs = sum(monto_presupuestado_proceso_adquisicion * pendiente),
+    monto_pend_pred = sum(monto_presupuestado_proceso_adquisicion * p_looo),
+    sesgo_monto_pendiente = monto_pend_pred - monto_pend_obs,
+    ratio_monto_pendiente = monto_pend_pred / monto_pend_obs
+  ) %>%
+  dplyr::mutate(metrica = "sesgo_monto_pendiente") %>%
+  dplyr::select(metrica, dplyr::everything())
+sensibilidad_salida <- dplyr::bind_rows(
+  sensibilidad(datos, "Principal (≤2022)"),
+  sensibilidad(dplyr::filter(datos, edad >= 7), "≤2019"),
+  sensibilidad(dplyr::filter(datos, !numero_prestamo %in% c("2245", "2317")), "Sin ops. 2245 y 2317"),
+  sensibilidad(dplyr::filter(datos, estado3 != "fracasado_desierto"), "Sin fracasados")
+) %>%
+  dplyr::mutate(metrica = "sensibilidad")
+modelo_ajuste_salida <- dplyr::bind_rows(metricas_looo, metricas_benchmark, sesgo_monto) %>%
+  dplyr::mutate(muestra = "Principal (≤2022)") %>%
+  dplyr::bind_rows(sensibilidad_salida)
+readr::write_csv(modelo_ajuste_salida, "Data/csv/modelo_ajuste.csv")
+
