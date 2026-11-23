@@ -1,0 +1,28 @@
+---
+title: "Nota para revisiones de portafolio"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+raiz <- normalizePath("..")
+knitr::opts_knit$set(root.dir = raiz)
+pacman::p_load(readr, dplyr, scales)
+datos <- readr::read_csv(file.path(raiz, "Data/csv/corte_transversal.csv"), show_col_types = FALSE)
+operaciones <- readr::read_csv(file.path(raiz, "Data/csv/operaciones_semaforo.csv"), show_col_types = FALSE)
+```
+
+# Tres mensajes para la gestión
+
+1. **La brecha debe leerse en monto y no solo en conteo.** Los procesos pendientes representan `r scales::percent(sum(datos$estado3 == "pendiente") / nrow(datos), accuracy = .1)` de los registros y `r scales::percent(sum(datos$monto_presupuestado_proceso_adquisicion[datos$estado3 == "pendiente"]) / sum(datos$monto_presupuestado_proceso_adquisicion), accuracy = .1)` del presupuesto de la muestra principal.
+2. **El semáforo ordena conversaciones, no asigna culpas.** Rojo identifica operaciones con una participación pendiente esperada alta según umbrales explícitos. La revisión debe incorporar contexto técnico y contractual.
+3. **La calidad del dato es parte de la solución.** Los procesos fracasados o desiertos pesan poco en monto, por lo que registrar montos y fechas de hitos permitiría una alerta más precisa.
+
+# Cómo usarlo
+
+En cada revisión, ordenar las operaciones por `monto_pendiente`, revisar primero las rojas de mayor monto, contrastar la predicción con el estado del expediente y documentar la acción de acompañamiento. Pendiente no equivale a retraso: el PSD no contiene todas las fechas necesarias para esa conclusión.
+
+# Top 10
+
+```{r}
+operaciones %>% dplyr::arrange(dplyr::desc(monto_pendiente)) %>% dplyr::slice_head(n = 10) %>% dplyr::select(numero_prestamo, pais, semaforo_abs, share_pendiente, monto_pendiente)
+```
