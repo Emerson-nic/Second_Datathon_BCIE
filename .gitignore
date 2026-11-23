@@ -11,6 +11,7 @@
 *.html
 *.md
 !README.md
+!README_EN.mc
 !nota_politica.md
 !02_modelo.md
 *.dcf
