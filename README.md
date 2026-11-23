@@ -4,7 +4,7 @@
 
 [![Abrir dashboard en Posit Connect](https://img.shields.io/badge/Posit%20Connect-Abrir%20dashboard-447099?logo=posit&logoColor=white)](https://connect.posit.cloud/em3r/content/01a20a50-e45d-b6b9-9e3c-9c72aaae51a9)
 
-[![Zenodo DOI](https://img.shields.io/badge/Zenodo-DOI%20pendiente-lightgrey?logo=zenodo)](#autoría-y-citación)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24484873.svg)](https://doi.org/10.5281/zenodo.24484873)
 
 Este proyecto participa en el Segundo Datathon de Datos Abiertos del BCIE. Utiliza información pública de procesos de adquisición, planes de adquisiciones y operaciones de crédito para medir la brecha observada entre lo planificado y el estado registrado. También construye un semáforo de revisión por operación y una lista de las diez operaciones con mayor monto pendiente esperado.
 
@@ -116,5 +116,7 @@ Rscript Scripts/03_plots.R
 El PSD es una fotografía y no un panel. La cobertura es parcial y la información es ingresada por prestatarios. No hay fechas suficientes para interpretar pendiente como retraso. El modelo no incluye país ni sector como covariables principales y describe correlaciones. La concentración de procesos por país debe considerarse al interpretar los resultados. El semáforo orienta revisiones y no reemplaza la supervisión técnica.
 
 ## Citación
+
+> Lopez Zeledon, E. 2026. *Se ejecutan los planes de adquisiciones del BCIE?* Código y materiales reproducibles. <https://github.com/Emerson-nic/Second_Datathon_BCIE>. DOI, [10.5281/zenodo.24484873](https://doi.org/10.5281/zenodo.24484873).
 
 

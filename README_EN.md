@@ -4,7 +4,7 @@
 
 [![Open dashboard in Posit Connect](https://img.shields.io/badge/Posit%20Connect-Open%20dashboard-447099?logo=posit&logoColor=white)](https://connect.posit.cloud/em3r/content/01a20a50-e45d-b6b9-9e3c-9c72aaae51a9)
 
-[![Zenodo DOI](https://img.shields.io/badge/Zenodo-DOI%20pending-lightgrey?logo=zenodo)](#authorship-and-citation)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24484873.svg)](https://doi.org/10.5281/zenodo.24484873)
 
 This project participates in the Second BCIE Open Data Datathon. It uses public information on procurement processes, procurement plans, and credit operations to measure the observed gap between planned amounts and recorded process status. It also builds an operation-level review traffic light and a top ten list ranked by expected pending amount.
 
@@ -119,18 +119,6 @@ Figures are saved in `Plots/`.
 
 The PSD is a snapshot rather than a panel. Coverage is partial and information is entered by borrowers. There are not enough dates to interpret pending as delay. Country and sector are not included as main model covariates and the model describes correlations. Country concentration should be considered when interpreting results. The traffic light supports reviews and does not replace technical supervision.
 
-## Authorship and citation
+## Citation
 
-Author, Emerson Lopez Zeledon, Economics student at the National University of Engineering of Nicaragua and independent author.
-
-Email, emerson.zeledon.ni@gmail.com
-
-ORCID, <https://orcid.org/0009-0009-6423-2883>
-
-Repository, <https://github.com/Emerson-nic/Second_Datathon_BCIE>
-
-License, MIT
-
-Suggested citation, Zeledon, E. 2026. *Are BCIE procurement plans being executed?* Reproducible code and materials. <https://github.com/Emerson-nic/Second_Datathon_BCIE>
-
-Zenodo DOI, `[COMPLETE after archiving a repository version]`
+> Lopez, E. 2026. *Are BCIE procurement plans being executed?* Reproducible code and materials. <https://github.com/Emerson-nic/Second_Datathon_BCIE> Zenodo DOI, [10.5281/zenodo.24484873](https://doi.org/10.5281/zenodo.24484873)

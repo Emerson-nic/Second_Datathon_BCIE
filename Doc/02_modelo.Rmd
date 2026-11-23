@@ -86,12 +86,13 @@ La apertura de datos hace posible esta conversación con información común ent
 - Conflictos de interes: Declaro que no tengo conflictos de interes relacionados con este trabajo.
 - Consentimientos, no se utilizaron entrevistas ni testimonios de personas, no aplica consentimiento informado.
 - Uso de inteligencia artificial: Declaro que el documento final sera redactado y revisado manualmente por mi, sin uso de inteligencia artificial generativa para su redaccion. `[COMPLETAR: confirmar antes de entregar]`
-- Contacto: Emerson Zeledon, emerson.zeledon.ni@gmail.com.
+- Contacto, Emerson Lopez Zeledon, emerson.zeledon.ni@gmail.com.
+- ORCID, <https://orcid.org/0009-0009-6423-2883>.
 
 # Referencias
 
 Banco Centroamericano de Integración Económica. (s. f.). *Plataforma de Datos Abiertos*. <https://datosabiertos.bcie.org>.
 
-Zeledon, E. (2026). *Se ejecutan los planes de adquisiciones del BCIE?* [Repositorio de código]. <https://github.com/Emerson-nic/Second_Datathon_BCIE>.
+Lopez Zeledon, E. (2026). *Se ejecutan los planes de adquisiciones del BCIE?* [Repositorio de código]. <https://github.com/Emerson-nic/Second_Datathon_BCIE>. https://doi.org/10.5281/zenodo.24484873.
 
 
