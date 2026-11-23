@@ -1,5 +1,27 @@
-#r
-*html
-*md
+# R
 .Rproj.user/
 .Rhistory
+.RData
+.Ruserdata
+
+#pdf/html
+
+*.pdf
+*.html
+*.md
+!README.md
+!nota_politica.md
+!02_modelo.md
+
+# Rendered and temporary documents
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*_cache/
+es tracked.
