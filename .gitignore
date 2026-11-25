@@ -8,15 +8,13 @@
 
 3. Miguel Angel Barrera.pdf
 19. Larissa Acosta.pdf
+Términos de referencia Segundo Datathon BCIE.pdf
 *.html
 *.md
 !README.md
 !README_EN.md
 !nota_politica.md
 !02_modelo.md
-*.dcf
-
-# Rendered and temporary documents
 *.aux
 *.bbl
 *.blg
